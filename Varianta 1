@@ -14,33 +14,45 @@
           let letterGuessed = 0;
           let lengthWord = word.length;
           let checkLength = 0;
+          let str = [" "];
 
           function pickLetter(clickedId) {
               let letter = "";
               letter += document.getElementById("searchTxt").value;
-              let guessLetter = 0;
-              for (let i = 0; i < lengthWord; ++i) {
-                  if (word[i] == letter) {
-                      ++guessLetter;
+              let aux = 0;
+              for (let i = 0; i < str.length; ++i) {
+                  if (str[i] == letter[0]) {
+                      ++aux;
                   }
               }
-              if (guessLetter > 0) {
-                  checkLength += guessLetter;
-                  if (checkLength == lengthWord) {
-                      alert("Ai ghicit toate literele cuvantului. Cuvantul este: " + word);
-                  } else {
-                      alert("Litera ,," + letter + "'' apare de " + guessLetter + " ori in cuvant");
+              str += letter;
+              if (aux == 0) {
+                  let guessLetter = 0;
+                  for (let i = 0; i < lengthWord; ++i) {
+                      if (word[i] == letter) {
+                          ++guessLetter;
+                      }
                   }
+                  if (guessLetter > 0) {
+                      checkLength += guessLetter;
+                      if (checkLength == lengthWord) {
+                          alert("Ai ghicit toate literele cuvantului. Cuvantul este: " + word);
+                      } else {
+                          alert("Litera ,," + letter + "'' apare de " + guessLetter + " ori in cuvant");
+                      }
+                  } else {
+                      ++mistakes;
+                      if (mistakes >= 6) {
+                          alert("Game Over!");
+                      } else {
+                          let tries = 6 - mistakes;
+                          alert("Litera ,," + letter + "'' nu apare in cuvant. Mai ai " + tries + " incercari");
+                      }
+                  }
+                  document.getElementById("hangman0").src = "images/image" + mistakes + ".png";
               } else {
-                  ++mistakes;
-                  if (mistakes >= 6) {
-                      alert("Game Over!");
-                  } else {
-                      let tries = 6 - mistakes;
-                      alert("Litera ,," + letter + "'' nu apare in cuvant. Mai ai " + tries + " incercari");
-                  }
+                  alert("Litera a mai fost introdusa");
               }
-              document.getElementById("hangman0").src = "images/image" + mistakes + ".png";
           }
         </script>
     </body>
