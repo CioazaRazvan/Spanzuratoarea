@@ -1,4 +1,3 @@
-          let mistakes = 0;
           let checkLength = 0;
           let str = [" "];
           let wordAux = "";
@@ -33,11 +32,8 @@
                               ++guessLetter;
                           }
                       }
-                      if (guessLetter > 0) {
+                      if (guessLetter > 0)
                           checkLength += guessLetter;
-                      } else {
-                          ++mistakes;
-                      }
                   } 
               }
           }
