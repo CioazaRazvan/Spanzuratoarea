@@ -37,7 +37,6 @@
                           checkLength += guessLetter;
                       } else {
                           ++mistakes;
-
                       }
                   } 
               }
