@@ -4,6 +4,7 @@
           let wordAux = "";
           var things = ['hanging', 'warrior', 'christmas', 'elephant', 'summer'];
           var thing = things[Math.floor(Math.random() * things.length)];
+          
           function chooseWord(){
             thing = things[Math.floor(Math.random() * things.length)];
             for (let i = 0; i < thing.length; ++i) {
