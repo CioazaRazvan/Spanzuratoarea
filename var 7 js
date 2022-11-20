@@ -4,7 +4,6 @@
           let wordAux = "";
           var things = ['hanging', 'warrior', 'christmas', 'elephant', 'summer'];
           var thing = things[Math.floor(Math.random() * things.length)];
-          
           function chooseWord(){
             thing = things[Math.floor(Math.random() * things.length)];
             for (let i = 0; i < thing.length; ++i) {
@@ -13,12 +12,13 @@
             btn0.textContent = wordAux;
           }
 
+          String.prototype.replaceAt = function(index, replacement) {
+            if (index >= this.length)
+                return this.valueOf();
+              return this.substring(0, index) + replacement + this.substring(index + 1);
+          } 
+
           function pickLetter(clickedId) {
-              String.prototype.replaceAt = function(index, replacement) {
-                  if (index >= this.length)
-                      return this.valueOf();
-                  return this.substring(0, index) + replacement + this.substring(index + 1);
-              }
               let letter = "";
               letter += document.getElementById("searchTxt").value;
               if (letter.length == 1) {
