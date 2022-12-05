@@ -45,12 +45,10 @@ function pickLetter(clickedId) {
                 if (mistakes >= 6){
                     let display=document.getElementById("p");
                     display.textContent="Game Over!";
-                    //alert("Game Over!");
                 } else {
                     let tries = 6 - mistakes;
                     let display=document.getElementById("p");
                     display.textContent="Mai ai " + tries + " vieti. Litera ,," + letter + "'' nu apare in cuvant.";
-                    //alert("Mai ai " + tries + " vieti. Litera ,," + letter + "'' nu apare in cuvant.");
                 }
             }
         }
